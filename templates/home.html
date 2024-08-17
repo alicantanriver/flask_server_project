@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Home List</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="http://127.0.0.1:5000/home">Home</a></td>
+            <td><a href="http://127.0.0.1:5000/work">Work</a></td>
+            <td><a href="http://127.0.0.1:5000/groceries">Groceries</a></td>
+        </tr>
+    </table>
+
+    <div id="home">
+        <h1>Home List:</h1>
+
+        <p class="italic">This is my to do list. Finish these by the end of day.</p>
+
+        <ul class="listToDo" id="listToDo">
+            {% for task in home_list %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+
+        <form method="post" action="/add_home_task">
+            <label for="addtask">Add a new task:</label>
+            <input type="text" placeholder="Add a new task" id="addtask" name="newtask" />
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+</body>
+
+</html>
